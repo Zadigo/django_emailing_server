@@ -1,0 +1,32 @@
+version: '3.7'
+
+volumes:
+  RedisData:
+
+networks:
+  emailing_server:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    container_name: app_emailing
+    volumes:
+      - .:/code
+    ports:
+      - 4000:80
+    networks:
+      - emailing_server
+
+  redis:
+    build: ./docker/redis
+    container_name: app_redis
+    # https://stackoverflow.com/questions/68461172/docker-compose-redis-password-via-environment-variable
+    ports:
+      - 6379:6000
+    restart: always
+    volumes:
+      - RedisData:/data
+      - ./var/redis.log:/data/redis.log:rw
+    networks:
+      - emailing_server

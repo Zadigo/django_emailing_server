@@ -1,7 +1,7 @@
 import asyncio
 import datetime
-import logging
 
+import pandas
 import redis
 
 from django_emailing_server import logger

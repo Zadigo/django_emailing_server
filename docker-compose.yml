@@ -17,7 +17,7 @@ services:
       - 4000:80
     networks:
       - emailing_server
-
+  
   redis:
     build: ./docker/redis
     container_name: app_redis

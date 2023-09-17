@@ -13,7 +13,7 @@ load_dotenv(ENV_DIR)
 class Logger:
     instance = None
 
-    def __init__(self, name='django_emailing_server'):
+    def __init__(self, name='Emailing server'):
         logger = logging.getLogger(name)
         logger.setLevel(logging.DEBUG)
 
@@ -51,5 +51,6 @@ class Logger:
 
     def critical(self, message, *args, **kwargs):
         self.instance.critical(message, *args, **kwargs)
+
 
 logger = Logger()

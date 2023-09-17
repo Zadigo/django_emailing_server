@@ -15,6 +15,7 @@ pandas = "*"
 pymemcache = "*"
 requests = "*"
 redis = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
